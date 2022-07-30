@@ -10,4 +10,16 @@ export const createUserOutputSchema = z.object({
     email: z.string().email()
 })
 
-export type CreateUserInput = z.infer<typeof createUserSchema>  
+export type CreateUserInput = z.infer<typeof createUserSchema>
+
+
+export const requestOtpSchema = z.object({
+    email: z.string().email(),
+    redirect: z.string().default('/')
+})
+
+export type RequestOtpInput = z.infer<typeof requestOtpSchema>
+
+export const verifyOtpSchema = z.object({
+    hash: z.string()
+})
